@@ -1,3 +1,3 @@
-# su.openstreetmap.it
+# [osmbrazil.zapto.org](http://osmbrazil.zapto.org/)
 
-Un modo veloce di aggiungere una attività commerciale su OpenStreetMap
+Uma maneira rápida de adicionar um estabelecimento comercial ao OpenStreetMap.
