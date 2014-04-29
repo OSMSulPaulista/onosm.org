@@ -173,7 +173,7 @@ $(window).on('hashchange', function() {
 $("#collect-data-done").click(function() {
     location.hash = '#done';
 
-    var note_body = "Nota enviada por osmbrazil.zapto.org.\n";
+    var note_body = "Nota enviada por osmbrazil.zapto.org\n\n";
         if ($("#name").val()) note_body += "Nome: " + $("#name").val() + "\n";
         if ($("#phone").val()) note_body += "Telefone: " + $("#phone").val() + "\n";
         if ($("#website").val()) note_body += "Website: " + $("#website").val() + "\n";
@@ -183,7 +183,7 @@ $("#collect-data-done").click(function() {
         if ($("#category").val()) note_body += "Categoria: " + $("#category").val() + "\n";
         if ($("#categoryalt").val()) note_body += "Descrição: " + $("#categoryalt").val() + "\n";
         if ($("#address").val()) note_body += "Endereço: " + $("#address").val() + "\n";
-        if ($("#payment").val()) note_body += "Modos de pagamento aceitos:" + $("#payment").val() + "\n";
+        if ($("#payment").val()) note_body += "Modos de pagamento aceitos: " + $("#payment").val() + "\n";
     var latlon = findme_marker.getLatLng();
     var qwarg = {
             lat: latlon.lat,
