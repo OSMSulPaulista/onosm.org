@@ -47,9 +47,9 @@ L.Control.Locate = L.Control.extend({
         },
         setView: true, // automatically sets the map view to the user's location
         strings: {
-            title: "Show me where I am",
-            popup: "You are within {distance} {unit} from this point",
-            outsideMapBoundsMsg: "You seem located outside the boundaries of the map"
+            title: "Mostre-me onde eu estou",
+            popup: "Você está a {distance} {unit} deste ponto",
+            outsideMapBoundsMsg: "Parece que você está localizado fora dos limites do mapa em exibição"
         },
         locateOptions: {}
     },
@@ -200,10 +200,10 @@ L.Control.Locate = L.Control.extend({
             var distance, unit;
             if (self.options.metric) {
                 distance = radius.toFixed(0);
-                unit = "meters";
+                unit = "metros";
             } else {
                 distance = (radius * 3.2808399).toFixed(0);
-                unit = "feet";
+                unit = "pés";
             }
 
             // small inner marker

@@ -1,12 +1,12 @@
 var findme_map = L.map('findme-map')
-    .setView([41.69, 12.71], 5),
+    .setView([-14.50, -49.14], 3),
     osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
-    osmAttrib = 'Dati © OpenStreetMap contributors',
+    osmAttrib = 'Dados do mapa © Contribuidores OpenStreetMap',
     osm = L.tileLayer(osmUrl, {minZoom: 2, maxZoom: 18, attribution: osmAttrib}).addTo(findme_map),
     category_data = [];
 var	payment_data = [];
 
-var findme_marker = L.marker([41.69, 12.71], {draggable:true}).addTo(findme_map);
+var findme_marker = L.marker([-14.50, -49.14], {draggable:true}).addTo(findme_map);
 findme_marker.setOpacity(0);
 
  L.control.locate({
@@ -55,7 +55,7 @@ $("#payment").select2({
     }
 });
 
-$("#wheel").select2({placeholder:"Seleziona una opzione"});
+$("#wheel").select2({placeholder:"Selecione uma opção"});
 
 /* search action */
 $("#find").submit(function(e) {
@@ -82,7 +82,7 @@ $("#find").submit(function(e) {
     
     var instance='nominatim';
     
-    $("#findme h4").text("Sto cercando...");
+    $("#findme h4").text("Localizando...");
     $("#findme").addClass("loading");
 	
 	if (instance=='nominatim')
@@ -117,10 +117,10 @@ function nominatim_callback(data){
             findme_map.fitBounds(bounds);
             findme_marker.setOpacity(1);
             findme_marker.setLatLng([chosen_place.lat, chosen_place.lon]);
-            $('#instructions').html('Trovato! Clicca e trascina l\'indicatore sulla posizione della tua attività commerciale, così sarai pronto/a a <a href="#details">aggiungere dettagli alla tua scheda</a>.');
+            $('#instructions').html('Encontramos! Clique e arraste o marcador para o local do seu negócio,<br/> então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
             $('.step-2 a').attr('href', '#details');
     }	else {
-            $('#instructions').html('<strong>Non siamo riusciti a trovare il tuo indirizzo.</strong> Prova a cercare la tua strada o città con meno dettagli.');
+            $('#instructions').html('<strong>Não conseguimos encontrar o seu endereço.</strong> Tente descrever sua rua ou cidade com menos detalhe.');
         }
     $("#findme").removeClass("loading");
 }
@@ -132,10 +132,10 @@ function solr_callback(data){
             findme_marker.setOpacity(1);
             findme_marker.setLatLng([coords[0], coords[1]]);
 			findme_map.setView([coords[0], coords[1]],16);
-            $('#instructions').html('Trovato! Clicca e trascina l\'indicatore sulla posizione della tua attività commerciale, così sarai pronto/a a <a href="#details">aggiungere dettagli alla tua scheda</a>.');
+            $('#instructions').html('Encontramos! Clique e arraste o marcador para o local do seu negócio,<br/> então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
             $('.step-2 a').attr('href', '#details');
     }   else {
-            $('#instructions').html('<strong>Non siamo riusciti a trovare il tuo indirizzo.</strong> Prova a cercare la tua strada o città con meno dettagli.');
+            $('#instructions').html('<strong>Não conseguimos encontrar o seu endereço.</strong> Tente descrever sua rua ou cidade com menos detalhe.');
         }
 	$("#findme").removeClass("loading");
 }
@@ -144,7 +144,7 @@ function solr_callback(data){
 findme_map.on('click', function(e){ 
 findme_marker.setOpacity(1);
 findme_marker.setLatLng(e.latlng); 
-$('#instructions').html('Hai attivato l\'indicatore! Cliccalo e trascinalo sulla posizione della tua attività commerciale, così sarai pronto/a a <a href="#details">aggiungere dettagli alla tua scheda</a>.');
+$('#instructions').html('Você ativou o marcador! Clique-o e arraste-o para o local do seu negócio,<br/> então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
 $('.step-2 a').attr('href', '#details');
 });
 
@@ -173,17 +173,17 @@ $(window).on('hashchange', function() {
 $("#collect-data-done").click(function() {
     location.hash = '#done';
 
-    var note_body = "E' stata inviata una nota tramite su.openstreetmap.it:\n";
-		if ($("#name").val()) note_body += "Nome: " + $("#name").val() + "\n";
-        if ($("#phone").val()) note_body += "Telefono: " + $("#phone").val() + "\n";
-        if ($("#website").val()) note_body += "Sito web: " + $("#website").val() + "\n";
-        if ($("#social").val()) note_body += "Social Network: " + $("#social").val() + "\n";
-        if ($("#opening_hours").val()) note_body += "Orario di apertura: " + $("#opening_hours").val() + "\n";
-        if ($("#wheel").val()) note_body += "Accessibilità in sedia a rotelle: " + $("#wheel").val() + "\n";
+    var note_body = "Nota enviada por osmbrazil.zapto.org.\n";
+        if ($("#name").val()) note_body += "Nome: " + $("#name").val() + "\n";
+        if ($("#phone").val()) note_body += "Telefone: " + $("#phone").val() + "\n";
+        if ($("#website").val()) note_body += "Website: " + $("#website").val() + "\n";
+        if ($("#social").val()) note_body += "Redes sociais: " + $("#social").val() + "\n";
+        if ($("#opening_hours").val()) note_body += "Horário de funcionamento: " + $("#opening_hours").val() + "\n";
+        if ($("#wheel").val()) note_body += "Acessibilidade para cadeirantes: " + $("#wheel").val() + "\n";
         if ($("#category").val()) note_body += "Categoria: " + $("#category").val() + "\n";
-        if ($("#categoryalt").val()) note_body += "Descrizione: " + $("#categoryalt").val() + "\n";
-        if ($("#address").val()) note_body += "Indirizzo: " + $("#address").val() + "\n";
-        if ($("#payment").val()) note_body += "Tipologie di pagamento accettate: " + $("#payment").val() + "\n";
+        if ($("#categoryalt").val()) note_body += "Descrição: " + $("#categoryalt").val() + "\n";
+        if ($("#address").val()) note_body += "Endereço: " + $("#address").val() + "\n";
+        if ($("#payment").val()) note_body += "Modos de pagamento aceitos:" + $("#payment").val() + "\n";
     var latlon = findme_marker.getLatLng();
     var qwarg = {
             lat: latlon.lat,
@@ -195,7 +195,7 @@ $("#collect-data-done").click(function() {
 		console.log( data );
 		var noteId=data['properties']['id'];
 		var link='http://www.openstreetmap.org/?note='+noteId+'#map=19/'+latlon.lat+'/'+latlon.lon+'&layers=N';
-	  	$("#linkcoords").val('<a href="'+link+'">'+link+'</a>');
+		$("#linkcoords").append('<a href="'+link+'">'+link+'</a>');
 	});
 
 });
@@ -211,4 +211,5 @@ function clearFields(){
 	$("#address").empty();
 	$("#payment").empty();
 	$("#wheel").empty();
+	$("#linkcoords").empty();
 }
