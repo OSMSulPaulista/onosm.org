@@ -83,3 +83,7 @@ button {
     float: none;
     }
 }
+
+#collect-data-done {
+    margin-top:10px;
+}

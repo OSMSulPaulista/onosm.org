@@ -51,7 +51,16 @@ $("#payment").select2({
     }
 });
 
-$("#wheel").select2({placeholder:"Selecione uma opção"});
+$("#wheel").select2({
+    data: [
+        {id: 'yes', text: 'Completamente acessível'},
+        {id: 'limited', text: 'Parcialmente acessível'},
+        {id: 'no', text: 'Não acessível'},
+        {id: 'designated', text: 'Não acessível, apenas no projeto'},
+        {id: 'unknown', text: 'Nível de acessibilidade desconhecido'}
+    ],
+    width: '85%'
+});
 
 /* search action */
 $("#find").submit(function(e) {
@@ -113,7 +122,7 @@ function nominatim_callback(data){
             findme_map.fitBounds(bounds);
             findme_marker.setOpacity(1);
             findme_marker.setLatLng([chosen_place.lat, chosen_place.lon]);
-            $('#instructions').html('Encontramos! Clique e arraste o marcador para o local do seu negócio,<br/> então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
+            $('#instructions').html('Encontramos! Clique e arraste o marcador para o local do seu negócio, então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
             $('.step-2 a').attr('href', '#details');
     }	else {
             $('#instructions').html('<strong>Não conseguimos encontrar o seu endereço.</strong> Tente descrever sua rua ou cidade com menos detalhe.');
@@ -128,7 +137,7 @@ function solr_callback(data){
             findme_marker.setOpacity(1);
             findme_marker.setLatLng([coords[0], coords[1]]);
 			findme_map.setView([coords[0], coords[1]],16);
-            $('#instructions').html('Encontramos! Clique e arraste o marcador para o local do seu negócio,<br/> então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
+            $('#instructions').html('Encontramos! Clique e arraste o marcador para o local do seu negócio, então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
             $('.step-2 a').attr('href', '#details');
     }   else {
             $('#instructions').html('<strong>Não conseguimos encontrar o seu endereço.</strong> Tente descrever sua rua ou cidade com menos detalhe.');
@@ -140,7 +149,7 @@ function solr_callback(data){
 findme_map.on('click', function(e){ 
 findme_marker.setOpacity(1);
 findme_marker.setLatLng(e.latlng); 
-$('#instructions').html('Você ativou o marcador! Clique-o e arraste-o para o local do seu negócio,<br/> então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
+$('#instructions').html('Você ativou o marcador! Clique-o e arraste-o para o local do seu negócio, então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
 $('.step-2 a').attr('href', '#details');
 });
 
@@ -169,7 +178,7 @@ $(window).on('hashchange', function() {
 $("#collect-data-done").click(function() {
     location.hash = '#done';
 
-    var note_body = "Nota enviada por osmbrazil.zapto.org\n\n";
+    var note_body = "Nota enviada por osmbrazil.zapto.org\n \n";
         if ($("#name").val()) note_body += "Nome: " + $("#name").val() + "\n";
         if ($("#phone").val()) note_body += "Telefone: " + $("#phone").val() + "\n";
         if ($("#website").val()) note_body += "Website: " + $("#website").val() + "\n";
@@ -209,3 +218,5 @@ function clearFields(){
 	$("#wheel").empty();
 	$("#linkcoords").empty();
 }
+
+clearFields();
