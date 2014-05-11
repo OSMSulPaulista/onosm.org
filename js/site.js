@@ -113,7 +113,7 @@ $("#find").submit(function(e) {
 function nominatim_callback(data){
 	if (data.length > 0) {
             var chosen_place = data[0];
-            console.log(chosen_place);
+            //console.log(chosen_place);
 
             var bounds = new L.LatLngBounds(
                 [+chosen_place.boundingbox[0], +chosen_place.boundingbox[2]],
@@ -124,6 +124,7 @@ function nominatim_callback(data){
             findme_marker.setLatLng([chosen_place.lat, chosen_place.lon]);
             $('#instructions').html('Encontramos! Clique e arraste o marcador para o local do seu negócio, então você estará pronto para <a href="#details">adicionar à nossa lista os detalhes de sua empresa</a>.');
             $('.step-2 a').attr('href', '#details');
+            $('#addressalt').val(chosen_place.display_name);
     }	else {
             $('#instructions').html('<strong>Não conseguimos encontrar o seu endereço.</strong> Tente descrever sua rua ou cidade com menos detalhe.');
         }
@@ -187,7 +188,7 @@ $("#collect-data-done").click(function() {
         if ($("#wheel").val()) note_body += "Acessibilidade para cadeirantes: " + $("#wheel").val() + "\n";
         if ($("#category").val()) note_body += "Categoria: " + $("#category").val() + "\n";
         if ($("#categoryalt").val()) note_body += "Descrição: " + $("#categoryalt").val() + "\n";
-        if ($("#address").val()) note_body += "Endereço: " + $("#address").val() + "\n";
+        if ($("#addressalt").val()) note_body += "Endereço: " + $("#addressalt").val() + "\n";
         if ($("#payment").val()) note_body += "Modos de pagamento aceitos: " + $("#payment").val() + "\n";
     var latlon = findme_marker.getLatLng();
     var qwarg = {
