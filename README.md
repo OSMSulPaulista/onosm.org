@@ -1,4 +1,4 @@
-# [osmbrazil.zapto.org](http://osmbrazil.zapto.org/)
+# [openstreetmap.com.br/zapto](http://www.openstreetmap.com.br/zapto)
 
 É uma maneira rápida de adicionar um negócio ao OpenStreetMap. Na realidade, qualquer [ponto de interesse](https://pt.wikipedia.org/wiki/Ponto_de_interesse).
 

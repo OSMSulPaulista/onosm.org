@@ -179,7 +179,7 @@ $(window).on('hashchange', function() {
 $("#collect-data-done").click(function() {
     location.hash = '#done';
 
-    var note_body = "Nota enviada por osmbrazil.zapto.org\n \n";
+    var note_body = "Nota enviada por openstreetmap.com.br/zapto\n \n";
         if ($("#name").val()) note_body += "Nome: " + $("#name").val() + "\n";
         if ($("#phone").val()) note_body += "Telefone: " + $("#phone").val() + "\n";
         if ($("#website").val()) note_body += "Website: " + $("#website").val() + "\n";
