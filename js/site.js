@@ -1,5 +1,5 @@
 var findme_map = L.map('findme-map')
-    .setView([37.7, -97.3], 3),
+    .setView([-14.50, -49.14], 3),
     osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
     osmAttrib = 'Map data © OpenStreetMap contributors',
     osm = L.tileLayer(osmUrl, {minZoom: 2, maxZoom: 18, attribution: osmAttrib}).addTo(findme_map),
