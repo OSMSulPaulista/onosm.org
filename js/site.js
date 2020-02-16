@@ -15,7 +15,7 @@ if (location.hash) location.hash = '';
 
 var successString,loadingText;
 
-i18n.init({ fallbackLng: 'en-US', postAsync: 'false' }, function() {
+i18n.init({ fallbackLng: 'pt-BR', postAsync: 'false' }, function() {
     $("body").i18n();
 
     successString=i18n.t('messages.success', { escapeInterpolation: false });
@@ -27,8 +27,8 @@ i18n.init({ fallbackLng: 'en-US', postAsync: 'false' }, function() {
     };
 
     $.getJSON('./locales/' + detectedLang + '/categories.json', buildSelectControl).fail(function () {
-        // 404? Fall back to en-US
-         $.getJSON('./locales/en-US/categories.json', buildSelectControl);
+        // 404? Fall back to pt-BR
+         $.getJSON('./locales/pt-BR/categories.json', buildSelectControl);
     });
 });
 
