@@ -1,4 +1,4 @@
-# [https://zapto.openstreetmap.org.br/](https://zapto.openstreetmap.org.br/)
+# [https://zapto.openstreetmap.org.br](https://zapto.openstreetmap.org.br)
 
 Uma maneira fácil de começar um negócio no OpenStreetMap.
 
