@@ -1,4 +1,4 @@
-# [https://osmsulpaulista.github.io/zapto](https://osmsulpaulista.github.io/zapto)
+# [https://zapto.openstreetmap.org.br/](https://zapto.openstreetmap.org.br/)
 
 Uma maneira fácil de começar um negócio no OpenStreetMap.
 
